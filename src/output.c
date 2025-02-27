@@ -5,7 +5,7 @@
 
 #include "output.h"
 #include "dns.h"
-#include "icmp_packet.h"
+#include "icmp.h"
 
 /**
  * Print ping's starting paragraph.
