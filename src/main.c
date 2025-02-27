@@ -8,7 +8,7 @@
 #include <getopt.h>
 
 #include "context.h"
-#include "icmp_packet.h"
+#include "icmp.h"
 #include "output.h"
 #include "options.h"
 #include "dns.h"

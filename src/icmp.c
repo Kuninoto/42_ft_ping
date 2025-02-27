@@ -8,7 +8,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include "icmp_packet.h"
+#include "icmp.h"
 
 /**
  * Initializes `packet`'s data. Does nothing if `packet` is `NULL` or `pattern_len` is bigger than 0 and `pattern` is `NULL`.

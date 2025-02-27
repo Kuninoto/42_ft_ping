@@ -11,7 +11,7 @@
 #include <string.h>
 
 #include "network.h"
-#include "icmp_packet.h"
+#include "icmp.h"
 #include "dns.h"
 #include "output.h"
 #include "utils.h"
