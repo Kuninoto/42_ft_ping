@@ -92,10 +92,10 @@ static int preload(
     struct Context *ctx,
     uint8_t *packet,
     size_t packet_size,
-    long long nr_packets
+    int nr_packets
 ) {
     // Send <nr_packets> as fast as possible
-    for (long long i = 0; i < nr_packets && g_run; i += 1) {
+    for (int i = 0; i < nr_packets && g_run; i += 1) {
         if (ping(ctx, packet, packet_size) == -1) {
             return 1;
         }
@@ -103,7 +103,7 @@ static int preload(
 
     // Wait for responses and, in case count option was provided,
     // verify if we've already received <count> packets
-    for (long long i = 0; i < nr_packets && g_run; i += 1) {
+    for (int i = 0; i < nr_packets && g_run; i += 1) {
         if (receive_response(ctx, packet_size) == -1) {
             return 1;
         }
@@ -181,7 +181,7 @@ int main(int argc, char **argv) {
     }
 
     if (ctx.opts.preload_packets != DEFAULT_PRELOAD_PACKAGES) {
-        long long n = ctx.opts.preload_packets;
+        int n = ctx.opts.preload_packets;
         if (ctx.opts.count != DEFAULT_COUNT) {
             // If <count> was provided, we should preload the minimum between <count> and <preload_packets>
             n = MIN(ctx.opts.count, ctx.opts.preload_packets);

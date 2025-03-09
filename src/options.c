@@ -80,13 +80,10 @@ int parse_options(struct Options *opts, int argc, char **argv) {
             opts->flood = true;
             break;
         }
-        case 'h': {
-            opts->help = true;
-            return 0; // Since we exit the program when -h is passed, no need to parse further
-        }
+        case 'h':
         case '?': {
             opts->help = true;
-            return 0; // Since we exit the program when -? is passed, no need to parse further
+            return 0; // Since we exit the program when -h or -? is passed, no need to parse further
         }
         case 'i': {
             double parsed_interval = strtod(optarg, &endptr);
