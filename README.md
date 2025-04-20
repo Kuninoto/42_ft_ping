@@ -37,7 +37,7 @@ sudo apt-get install cc make
 git clone https://github.com/Kuninoto/42_ft_ping ft_ping && cd ft_ping
 ```
 
-3. Build and run (requires root privileges to user socket RAW)
+3. Build and run (requires root privileges to use socket RAW)
 ```bash
 make && sudo ./ft_ping [options] <destination>
 ```
