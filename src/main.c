@@ -86,7 +86,7 @@ static inline int setup_signal_handlers(void) {
  * @param packet_size Size of `packet`
  * @param nr_packets Number of packets to send
  *
- * @return `0` on success, `1` on failure
+ * @return `0` on success, `-1` on failure
  */
 static int preload(
     struct Context *ctx,
@@ -97,7 +97,7 @@ static int preload(
     // Send <nr_packets> as fast as possible
     for (int i = 0; i < nr_packets && g_run; i += 1) {
         if (ping(ctx, packet, packet_size) == -1) {
-            return 1;
+            return -1;
         }
     }
 
@@ -105,7 +105,7 @@ static int preload(
     // verify if we've already received <count> packets
     for (int i = 0; i < nr_packets && g_run; i += 1) {
         if (receive_response(ctx, packet_size) == -1) {
-            return 1;
+            return -1;
         }
 
         long long all_received_packets =
